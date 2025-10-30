@@ -9,6 +9,14 @@ class Plan {
     this.tasks = const [],
   });
 
+  Plan copyWith({String? name, List<Task>? tasks}) {
+    return Plan(
+      name: name ?? this.name,
+      tasks: tasks ?? this.tasks,
+    );
+  }
+
+
   int get completedCount => tasks
     .where((task) => task.complete)
     .length;
